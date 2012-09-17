@@ -1,0 +1,7 @@
+GET     /                  controllers.Application.index
+
+GET     /assets/*file      controllers.Assets.at(path="/META-INF/resources", file)
+
+GET     /comet/*tag        controllers.Application.getQuestionsCometStream(tag)
+GET     /*tag              controllers.Application.getQuestions(tag)
+POST    /*tag              controllers.Application.createQuestion(tag)

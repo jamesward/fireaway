@@ -1,0 +1,38 @@
+@(tag: String)
+
+@main(tag) {
+
+    <script type="text/javascript">
+        $(function() {
+            $("#submitForm").bind("submit", function(event) {
+                event.preventDefault()
+                $.ajax({
+                    type: "POST",
+                    url: $(this).attr("action"),
+                    data: $("#questionInput").val(),
+                    dataType: "text",
+                    contentType: "text/plain"
+                })
+            })
+        })
+
+        var cometMessage = function(data) {
+            $("#questions").append($("<li>").text(data))
+        }
+    </script>
+
+    <!-- Display URL -->
+
+    <!-- Display Add Question Box -->
+    <form id="submitForm" action="@routes.Application.createQuestion(tag)" method="post">
+        <input id="questionInput" name="question">
+        <input type="submit" value="Send!">
+    </form>
+
+    <!-- Display Questions -->
+
+    <ul id="questions"></ul>
+    
+    <iframe id="comet" src="/comet/@tag" ></iframe>
+    
+}
