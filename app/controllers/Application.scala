@@ -14,6 +14,7 @@ object Application extends Controller {
   
   // renders the default page
   def index = Action {
+    // todo: Async fetch of tags
     Ok(views.html.index())
   }
 
@@ -37,9 +38,14 @@ object Application extends Controller {
     val question = request.body
     
     // send the message
+    // todo: Async for response handle?
     questionActor ! CreateQuestion(tag, question)
     
     Ok("")
   }
+  
+  // todo: vote up / down
+  
+  // todo: mark as answered
 
 }

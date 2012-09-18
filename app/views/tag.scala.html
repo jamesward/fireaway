@@ -2,26 +2,9 @@
 
 @main(tag) {
 
-    <script type="text/javascript">
-        $(function() {
-            $("#submitForm").bind("submit", function(event) {
-                event.preventDefault()
-                $.ajax({
-                    type: "POST",
-                    url: $(this).attr("action"),
-                    data: $("#questionInput").val(),
-                    dataType: "text",
-                    contentType: "text/plain"
-                })
-            })
-        })
+    <!-- todo: make pretty -->
 
-        var cometMessage = function(data) {
-            $("#questions").append($("<li>").text(data))
-        }
-    </script>
-
-    <!-- Display URL -->
+    <script type='text/javascript' src='@routes.Assets.at("javascripts/tag.min.js")'></script>
 
     <!-- Display Add Question Box -->
     <form id="submitForm" action="@routes.Application.createQuestion(tag)" method="post">
@@ -30,9 +13,7 @@
     </form>
 
     <!-- Display Questions -->
-
-    <ul id="questions"></ul>
-    
-    <iframe id="comet" src="/comet/@tag" ></iframe>
+    <div id="fireaway"></div>
+    <script type='text/javascript' src='@routes.Assets.at("javascripts/embed.js")'></script>
     
 }

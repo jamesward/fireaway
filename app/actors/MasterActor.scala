@@ -16,12 +16,14 @@ class MasterActor extends Actor {
     case Join(tag, enumerator) =>
       // add the channel to a tag
       getOrCreateTagActor(tag) ! JoinTag(enumerator)
-
+      
+      // todo: send all of the past questions to the channel
     
     case CreateQuestion(tag, question) =>
       // todo: save the question
 
       // broadcast to the tag
+      // todo: make this work across nodes
       getOrCreateTagActor(tag) ! Send(question)
     
   }

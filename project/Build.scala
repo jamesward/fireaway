@@ -12,7 +12,7 @@ object ApplicationBuild extends Build {
     "play.modules.reactivemongo" %% "play2-reactivemongo" % "0.1-SNAPSHOT",
     "org.webjars" % "jquery" % "1.8.1"
   )
-
+  
   val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA).settings(
     resolvers += "sgodbillon" at "https://bitbucket.org/sgodbillon/repository/raw/master/snapshots/",
     resolvers += "webjars" at "http://webjars.github.com/m2"
